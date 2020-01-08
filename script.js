@@ -18,15 +18,20 @@ $("#carnivore").on("click", function () {
         url: queryPaleo,
         method: "GET"
     }).then(function (response) {
-        var recipeTitle = response.resuts.title;
-        var recipeImage = response.results.image;
 
         console.log(queryPaleo);
         console.log(response);
-        $(".blog-post")
-        .append($("<h3>").html(recipeTitle))
-        .append($(".thumbnail").html(recipeImage))
-        .append($(""))
+      for (var i = 0; i <=9; i++){
+          var recipeTitle = response.results[i].title;
+          var recipeImage = response.results[i].image;
+          var recipeImageSrc = "https://spoonacular.com/recipeImages/" + recipeImage;
+          $(".medium-8 columns")
+          .append($("<div>"))
+          .append($("<h2>").html(recipeTitle))
+          .append($("<img src=" + recipeImageSrc + ">"))
+
+
+      }
     });
 });
 
@@ -39,7 +44,9 @@ $("#vegan").on("click", function () {
     }).then(function (response) {
         console.log(queryVegan);
         console.log(response);
-        console.log(response.results[0].title)
+        // console.log(response.results[i].title)
+        for (var i=0; i<=9; i++){
+        console.log(response.results[i].id)};
     });
 });
 
