@@ -1,13 +1,62 @@
-var edamkey = "2e68c484c12e4ddcf68cd4c939cef6e0";
-var edamURL = "https://api.edamam.com/search?q=";
 
-var spnkey = "&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-var spnURL = "https://api.spoonacular.com/food/products/search?query="
+// This is my experimental key below for calling PALEO results.
+var queryPaleo = "https://api.spoonacular.com/recipes/search?diet=Paleo&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
 
-var homnivore = "";
+// Here is another experimental key for calling VEGAN results.
+var queryVegan = "https://api.spoonacular.com/recipes/search?diet=Vegan&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
 
-var carnivore = "";
+// Here is another experimental key for calling VEGETARIAN results.
+var queryVegetarian = "https://api.spoonacular.com/recipes/search?diet=Vegetarian&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
 
-var vegetarian = "";
+// Here is another experimental key for calling OMNIVOROUS results.
+var queryAll = "https://api.spoonacular.com/recipes/search?diet=Whole30&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
 
-var vegan = "";
+
+// Creating an on-click event for the CARNIVORE link in the navbar 
+$("#carnivore").on("click", function () {
+    
+    $.ajax({
+        url: queryPaleo,
+        method: "GET"
+    }).then(function (response) {
+        console.log(queryPaleo);
+        console.log(response);
+    });
+});
+
+// Creating an on-click event for the VEGAN link in the navbar 
+$("#vegan").on("click", function () {
+    
+    $.ajax({
+        url: queryVegan,
+        method: "GET"
+    }).then(function (response) {
+        console.log(queryVegan);
+        console.log(response);
+    });
+});
+
+// Creating an on-click event for the VEGETARIAN link in the navbar 
+$("#vegetarian").on("click", function () {
+    
+    $.ajax({
+        url: queryVegetarian,
+        method: "GET"
+    }).then(function (response) {
+        console.log(queryVegetarian);
+        console.log(response);
+    });
+});
+
+// Creating an on-click event for the OMNIVORE link in the navbar 
+$("#onmivore").on("click", function () {
+    
+    $.ajax({
+        url: queryAll,
+        method: "GET"
+    }).then(function (response) {
+        console.log(queryAll);
+        console.log(response);
+    });
+});
+
