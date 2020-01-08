@@ -1,3 +1,4 @@
+
 // This is my experimental key below for calling PALEO results.
 var queryPaleo = "https://api.spoonacular.com/recipes/search?diet=Paleo&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
 
@@ -58,3 +59,4 @@ $("#onmivore").on("click", function () {
         console.log(response);
     });
 });
+
