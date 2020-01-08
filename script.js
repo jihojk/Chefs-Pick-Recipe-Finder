@@ -18,8 +18,15 @@ $("#carnivore").on("click", function () {
         url: queryPaleo,
         method: "GET"
     }).then(function (response) {
+        var recipeTitle = response.resuts.title;
+        var recipeImage = response.results.image;
+
         console.log(queryPaleo);
         console.log(response);
+        $(".blog-post")
+        .append($("<h3>").html(recipeTitle))
+        .append($(".thumbnail").html(recipeImage))
+        .append($(""))
     });
 });
 
@@ -32,6 +39,7 @@ $("#vegan").on("click", function () {
     }).then(function (response) {
         console.log(queryVegan);
         console.log(response);
+        console.log(response.results[0].title)
     });
 });
 
