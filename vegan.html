@@ -127,6 +127,15 @@
         <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
         <script>
             $(document).foundation();
+            // This loads the page automatically
+            $(document).ready(function() {
+                $.ajax({
+                    url: edaVegan,
+                    method: "GET"
+                }).then(function(response) {
+                    console.log(response)
+                });
+            });
         </script>
         <script src="script.js"></script>
 </body>

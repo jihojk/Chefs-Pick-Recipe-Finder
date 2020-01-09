@@ -126,6 +126,14 @@
         <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
         <script>
             $(document).foundation();
+            $(document).ready(function() {
+                $.ajax({
+                    url: edaPaleo,
+                    method: "GET"
+                }).then(function(response) {
+                    console.log(response)
+                });
+            });
         </script>
         <script src="script.js"></script>
 </body>
