@@ -60,52 +60,54 @@ const best_paleo = $("#paleo_pop");
 const cheap_paleo = $("#paleo_price");
 const fast_paleo = $("#paleo_time");
 const rand_paleo = $("#paleo_rand");
+
+
+
 // Creating an on-click event for the CARNIVORE link in the navbar 
 paleoNav.on("click", function() {
-
-    $.ajax({
-        url: edaPaleo,
-        method: "GET"
-    }).then(function(response) {
-        console.log(response)
-    })
-});
-
-
-
-
-// Creating an on-click event for the VEGAN link in the navbar 
-veganNav.on("click", function() {
-
-    $.ajax({
-        url: edaVegan,
-        method: "GET"
-    }).then(function(response) {
-        console.log(response)
+    $(document).ready(function() {
+        $.ajax({
+            url: edaPaleo,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response)
+        });
     });
 });
-
+// Creating an on-click event for the VEGAN link in the navbar 
+veganNav.on("click", function() {
+    $(document).ready(function() {
+        $.ajax({
+            url: edaVegan,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response)
+        });
+    });
+});
 // Creating an on-click event for the VEGETARIAN link in the navbar 
 vegataNav.on("click", function() {
+    $(document).ready(function() {
+        $.ajax({
+            url: edaVegata,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response);
 
-    $.ajax({
-        url: edaVegata,
-        method: "GET"
-    }).then(function(response) {
-        console.log(response);
-
+        });
     });
 });
 
 // Creating an on-click event for the OMNIVORE link in the navbar 
 omniNav.on("click", function() {
+    $(document).ready(function() {
+        $.ajax({
+            url: edaOmni,
+            method: "GET"
+        }).then(function(response) {
+            console.log(response);
 
-    $.ajax({
-        url: edaOmni,
-        method: "GET"
-    }).then(function(response) {
-        console.log(response);
-
+        });
     });
 });
 // Creating a click event for each link in the side bar of the index page
