@@ -116,8 +116,12 @@ best_omni.on("click", function() {
     $.ajax({
         url: queryAllPop,
         method: "GET"
+<<<<<<< HEAD
     }).then(function(response) {
         console.log(response);
+=======
+    }).then(function (response) {
+>>>>>>> 90fc8b7d891ba7a4948eb05d9055453bd3a24cce
 
     });
 });
@@ -128,6 +132,20 @@ cheap_omni.on("click", function() {
         method: "GET"
     }).then(function(response) {
         console.log(response);
+<<<<<<< HEAD
+=======
+      for (var i = 0; i <=9; i++){
+          var recipeTitle = response.results[i].title;
+          var recipeImage = response.results[i].image;
+          var recipeImageSrc = "https://spoonacular.com/recipeImages/" + recipeImage;
+          $(".medium-8 columns")
+          .append($("<div>"))
+          .append($("<h2>").html(recipeTitle))
+          .append($("<img src=" + recipeImageSrc + ">"))
+
+
+      }
+>>>>>>> 90fc8b7d891ba7a4948eb05d9055453bd3a24cce
     });
 });
 fast_omni.on("click", function() {
@@ -137,7 +155,13 @@ fast_omni.on("click", function() {
         method: "GET"
     }).then(function(response) {
         console.log(response);
+<<<<<<< HEAD
 
+=======
+        // console.log(response.results[i].title)
+        for (var i=0; i<=9; i++){
+        console.log(response.results[i].id)};
+>>>>>>> 90fc8b7d891ba7a4948eb05d9055453bd3a24cce
     });
 });
 rand_omni.on("click", function() {
