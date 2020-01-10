@@ -4,11 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Chef's pick</title>
+    <title>The Chef's Pick</title>
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+
+    <!-- Using slick JS 3rd party library. -->
+    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 </head>
 
-<body>
+<body background="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.foodandwine.com%2Fsites%2Fdefault%2Ffiles%2F1515598922%2Fsmorgasbord-XL-RECIPE0218.jpg&w=450&c=sc&poi=face&q=85">
 
     <div class="top-bar">
         <div class="top-bar-right">
@@ -24,90 +28,119 @@
 
 
 
-        <div class="callout large primary">
-            <div class="row column text-center">
-                <h1>The Chef's pick</h1>
+    <div class="callout large primary">
+        <div class="row column text-center">
+            <h1>The Chef's Pick</h1>
+        </div>
+
+        <!-- <div class="fadePics">    
+            <img src="https://s23991.pcdn.co/wp-content/uploads/fly-images/180017/carrot-cake-fp-400x400-c.jpg" 
+            alt="Carrot Cake" width="300" height="200"></img>
+            <img src="https://hips.hearstapps.com/hmg-prod/images/190409-pizza-burger-horizontal-2-1555624827.png" 
+            alt="Pizza Burgers" width="300" height="200"></img>
+            <img src="https://www.healthygourmet.com/wp-content/uploads/2019/12/house-burger-edit-3-300x225.png" 
+            alt="Meat & Veggies" width="300" height="200"></img>
+        </div> -->
+    </div>
+    <div class="row" id="content">
+        <div class="medium-8 columns">
+            <div class="blog-post">
+                <h3>Awesome blog post title <small>3/6/2015</small></h3>
+                <img class="thumbnail" src="https://placehold.it/850x350">
+                <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
+                    congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
+                    Quisque eget odio ac lectus vestibulum
+                    faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+                <div class="callout">
+                    <ul class="menu simple">
+                        <li><a href="#">Author: Mike Mikers</a></li>
+                        <li><a href="#">Comments: 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="blog-post">
+                <h3>Awesome blog post title <small>3/6/2015</small></h3>
+                <img class="thumbnail" src="https://placehold.it/850x350">
+                <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
+                    congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
+                    Quisque eget odio ac lectus vestibulum
+                    faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+                <div class="callout">
+                    <ul class="menu simple">
+                        <li><a href="#">Author: Mike Mikers</a></li>
+                        <li><a href="#">Comments: 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="blog-post">
+                <h3>Awesome blog post title <small>3/6/2015</small></h3>
+                <img class="thumbnail" src="https://placehold.it/850x350">
+                <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
+                    congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
+                    Quisque eget odio ac lectus vestibulum
+                    faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+                <div class="callout">
+                    <ul class="menu simple">
+                        <li><a href="#">Author: Mike Mikers</a></li>
+                        <li><a href="#">Comments: 3</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="blog-post">
+                <h3>Awesome blog post title <small>3/6/2015</small></h3>
+                <img class="thumbnail" src="https://placehold.it/850x350">
+                <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
+                    congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
+                    Quisque eget odio ac lectus vestibulum
+                    faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+                <div class="callout">
+                    <ul class="menu simple">
+                        <li><a href="#">Author: Mike Mikers</a></li>
+                        <li><a href="#">Comments: 3</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-        <div class="row" id="content">
-            <div class="medium-8 columns">
-                <div class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="medium-3 columns" data-sticky-container>
-                <div class="sticky" data-sticky data-anchor="content">
-                    <h4>Categories</h4>
-                    <ul>
-                        <li><a id="omni_pop" href="#">The Best</a></li>
-                        <li><a id="omni_price" href="#">The Cheapest</a></li>
-                        <li><a id="omni_time" href="#">The Quickest</a></li>
-                        <li><a id="omni_rand" href="#">The Chef's Pick</a></li>
-                    </ul>
+        <div class="medium-3 columns" data-sticky-container>
+            <div class="sticky" data-sticky data-anchor="content">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a id="omni_pop" href="#">The Best</a></li>
+                    <li><a id="omni_price" href="#">The Cheapest</a></li>
+                    <li><a id="omni_time" href="#">The Quickest</a></li>
+                    <li><a id="omni_rand" href="#">The Chef's Pick</a></li>
+                </ul>
 
 
-                    <div class="container">
-                        <h4> What's in Your Fridge? </h4>
-                        <input type="text" placeholder="Your Ingredients (3) "> <button type="button" class="button" > Add </button>
-                        <button type="button" class="button" > Find Recipes </button> 
-            
-                    </div>
-                    <!-- <h4>Authors</h4>
+                <div class="container">
+                    <h4> What's in Your Fridge? </h4>
+                    <input type="text" type="submit" placeholder=" Your Ingredients (3) ">
+                    <button type="button" class="button" id="addButton"> Add </button>
+                    <button type="button" class="button" id="findButton"> Find Recipes </button>
+                    <div id="addHere">does this work?</div>
+                </div>
+
+                <!-- <h4>Authors</h4>
                 <ul>
                     <li><a href="#"></a></li>
                     <li><a href="#">Jesse</a></li>
                     <li><a href="#">Mike</a></li>
                     <li><a href="#">Holly</a></li>
                 </ul> -->
-                </div>
+
             </div>
         </div>
-        <!-- <div class="row column">
+    </div>
+
+    <!-- Some more slick JS library links -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+</bodybackground="https://assets3.roadtrippers.com/uploads/blog_post/main_picture/3564/-quality_60_-interlace_Plane_-resize_640x360_U__-gravity_center_-extent_640x360/stelvio-pass.jpg">
+
+</html>
+
+<!-- <div class="row column">
         <ul class="pagination" role="navigation" aria-label="Pagination">
             <li class="disabled">Previous</li>
             <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
@@ -135,6 +168,7 @@
             });
         </script>
         <script src="script.js"></script>
-</body>
+
+    </body>
 
 </html>
