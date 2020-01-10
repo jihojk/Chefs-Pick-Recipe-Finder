@@ -1,34 +1,34 @@
 // This is the key below for calling PALEO results from spoonacular api ($.007).
-const queryPaleoPop = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=popularity&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryPaleoPrice = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=price&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryPaleoFast = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=time&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryPaleoRand = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=random&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryPaleoPop = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=popularity&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryPaleoPrice = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=price&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryPaleoFast = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=time&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryPaleoRand = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=random&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
 // This is edamam PALEO api key (DO NOT EXCEED MORE THAN 10 CALLS PER MINUTE).
-const edaPaleo = "https://api.edamam.com/search?q=steak&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3&Health=paleo"
+var edaPaleo = "https://api.edamam.com/search?q=steak&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3&Health=paleo"
 
 // Here is another experimental key for calling VEGAN results from spoonacular api ($.007).
-const queryVeganPop = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegan&number=3&type=main+course&sort=popularity&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryVeganPrice = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegan&number=3&type=main+course&sort=price&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryVeganFast = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegan&number=3&type=main+course&sort=time&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryVeganRand = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegan&number=3&type=main+course&sort=random&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryVeganPop = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegan&number=3&type=main+course&sort=popularity&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryVeganPrice = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegan&number=3&type=main+course&sort=price&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryVeganFast = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegan&number=3&type=main+course&sort=time&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryVeganRand = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegan&number=3&type=main+course&sort=random&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
 // This is edamam VEGAN api key (DO NOT EXCEED MORE THAN 10 CALLS PER MINUTE).
-const edaVegan = "https://api.edamam.com/search?q=tofu&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3&Health=vegan"
+var edaVegan = "https://api.edamam.com/search?q=tofu&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3&Health=vegan"
 
 // Here is another experimental key for calling VEGETARIAN results from spoonacular api ($.007).
-const queryVegata = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=popularity&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryVegataPrice = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=price&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryVegataFast = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=time&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryVegataRand = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=random&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryVegata = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=popularity&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryVegataPrice = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=price&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryVegataFast = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=time&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryVegataRand = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=random&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
 // This is edamam VEGATARIAN api key (DO NOT EXCEED MORE THAN 10 CALLS PER MINUTE).
-const edaVegata = "https://api.edamam.com/search?q=broccoli&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3&Health=vegatarian"
+var edaVegata = "https://api.edamam.com/search?q=broccoli&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3&Health=vegatarian"
 
 // Here is another experimental key for calling OMNIVOROUS results from spoonacular api ($.007).
-const queryAllPop = "https://api.spoonacular.com/recipes/complexSearch?diet=Whole30&number=3&type=main+course&sort=popularity&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryAllPrice = "https://api.spoonacular.com/recipes/complexSearch?diet=Whole30&number=3&type=main+course&sort=price&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryAllFast = "https://api.spoonacular.com/recipes/complexSearch?diet=Whole30&number=3&type=main+course&sort=time&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
-const queryAllRand = "https://api.spoonacular.com/recipes/complexSearch?diet=Whole30&number=3&type=main+course&sort=random&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryAllPop = "https://api.spoonacular.com/recipes/complexSearch?diet=Whole30&number=3&type=main+course&sort=popularity&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryAllPrice = "https://api.spoonacular.com/recipes/complexSearch?diet=Whole30&number=3&type=main+course&sort=price&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryAllFast = "https://api.spoonacular.com/recipes/complexSearch?diet=Whole30&number=3&type=main+course&sort=time&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+var queryAllRand = "https://api.spoonacular.com/recipes/complexSearch?diet=Whole30&number=3&type=main+course&sort=random&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
 // This is edamam omnivore api key (DO NOT EXCEED MORE THAN 10 CALLS PER MINUTE).
-const edaOmni = "https://api.edamam.com/search?q=chicken&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3"
+var edaOmni = "https://api.edamam.com/search?q=chicken&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3"
 
 // Need to capture each id in variable
 // This is the main navbar variable capture
@@ -71,6 +71,7 @@ paleoNav.on("click", function() {
             method: "GET"
         }).then(function(response) {
             console.log(response)
+
         });
     });
 });
@@ -98,7 +99,11 @@ vegataNav.on("click", function() {
     });
 });
 
-// Creating an on-click event for the OMNIVORE link in the navbar 
+// Creating an on-click event for the OMNIVORE link in the navbar
+
+//We need to create a variable to capture each child node we need to occupy the webpage
+
+
 omniNav.on("click", function() {
     $(document).ready(function() {
         $.ajax({
@@ -111,13 +116,89 @@ omniNav.on("click", function() {
     });
 });
 // Creating a click event for each link in the side bar of the index page
+
+//We need to create a variable to capture each child node we need to occupy the webpage
+
+// Ingredients are going to need it's own function to return desired value
+const ingred = "";
+
+// I am looking at why this didn't work.
+// function allPop_info(list) {
+//     var listOf_ingredients = "";
+//     for (var j = 0; j < list.length; j++) {
+//         let ingredient = list[j].ingredients;
+//         var groceries = [];
+//         if (ingredient.length === 0) {
+//             return null
+//         } else {
+//             for (var k = 0; k < ingredient.length; k++) {
+//                 groceries += ingredient[k];
+//                 if (ingredient[k] === groceries) {
+//                     return null
+//                 } else {
+//                     listOf_ingredients += groceries
+//                 }
+//             }
+//             return listOf_ingredients
+//         }
+//     }
+// }
+
 best_omni.on("click", function() {
 
     $.ajax({
         url: queryAllPop,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        // I  have commented out all console.log so you don't waste any api calls. 
+        // Feel free to uncomment and look at the results, but beware;
+        // For every API call that we use our up our free trial time.
+        // Be sure to read through entire for loop.
+
+        // console.log(response);
+
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+            let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+
+            // This is the variable you will need to use to access the list of ingredients
+
+            let listTheI = [];
+
+            for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+                // console.log(steps[ii]);
+                for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+                    // console.log(steps[ii].ingredients[iii].name);
+                    if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+                        listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+                    }
+
+                }
+            }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            console.log("**** url's");
+            console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -127,7 +208,48 @@ cheap_omni.on("click", function() {
         url: queryAllPrice,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -137,7 +259,48 @@ fast_omni.on("click", function() {
         url: queryAllFast,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -147,8 +310,48 @@ rand_omni.on("click", function() {
         url: queryAllRand,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
 
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
     });
 });
 // Creating a call for each link in the sidebar of the VEGAN page 
@@ -158,8 +361,48 @@ best_vegan.on("click", function() {
         url: queryVeganPop,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
 
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
     });
 });
 cheap_vegan.on("click", function() {
@@ -168,7 +411,48 @@ cheap_vegan.on("click", function() {
         url: queryVeganPrice,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -178,7 +462,48 @@ fast_vegan.on("click", function() {
         url: queryVeganFast,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -188,7 +513,48 @@ rand_vegan.on("click", function() {
         url: queryVeganRand,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -209,7 +575,48 @@ cheap_vegata.on("click", function() {
         url: queryVegataPrice,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -219,7 +626,48 @@ fast_vegata.on("click", function() {
         url: queryVegataFast,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -229,7 +677,48 @@ rand_vegata.on("click", function() {
         url: queryVegataRand,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -240,7 +729,48 @@ best_paleo.on("click", function() {
         url: queryPaleoPop,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -250,7 +780,48 @@ cheap_paleo.on("click", function() {
         url: queryPaleoPrice,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -260,7 +831,48 @@ fast_paleo.on("click", function() {
         url: queryPaleoFast,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });
@@ -270,7 +882,48 @@ rand_paleo.on("click", function() {
         url: queryPaleoRand,
         method: "GET"
     }).then(function(response) {
-        console.log(response);
+        for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+            let title = response.results[indexOfResults].title.toString();
+            // console.log("* name")
+            // console.log(title)
+            let imageSource = response.results[indexOfResults].image.toString();
+            // console.log("** image source")
+            // console.log(imageSource)
+
+
+            // This is the variable you will need to use to access the list of ingredients
+            // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+            let listTheI = [];
+
+            // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
+            //     // console.log(steps[ii]);
+            //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
+            //         // console.log(steps[ii].ingredients[iii].name);
+            //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
+            //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+            //         }
+
+            //     }
+            // }
+            // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+            let listOf_ingredients = listTheI.toString()
+                // console.log("*** final list");
+                // console.log(listOf_ingredients);
+            let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+            // console.log("**** url's");
+            // console.log(srcUrl);
+            // console.log("  ")
+
+
+
+            // This is code for appending that I had tried
+            // for (var ii = 0; ii < listTheI.length; ii++){}
+            // var dish_title = $("h3").text(allPop_dish);
+            // var dish_image = $("img").attr("src", allPop_image);
+
+            // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+
+        }
 
     });
 });

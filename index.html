@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Chef's pick</title>
-    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <link rel="stylesheet" style="width: fit-content;" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
 </head>
 
 <body>
@@ -29,7 +29,7 @@
 
 
         <div class="container">
-            <input type="text">
+            <input type="text" placeholder="Type your ingredients in here">
 
 
         </div>
@@ -41,54 +41,7 @@
         </div>
         <div class="row" id="content">
             <div class="medium-8 columns">
-                <div class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
             <div class="medium-3 columns" data-sticky-container>
                 <div class="sticky" data-sticky data-anchor="content">
@@ -133,6 +86,24 @@
                     method: "GET"
                 }).then(function(response) {
                     console.log(response);
+                    for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
+                        let title = response.hits[indexOfHits].recipe.label;
+                        // console.log("*Name");
+                        // console.log(title);
+                        let image = response.hits[indexOfHits].recipe.image;
+                        // console.log("* image source");
+                        // console.log(image);
+
+                        let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
+                            // console.log("** List of ingredients")
+                            // console.log(listTheI)
+
+                        let srcUrl = response.hits[indexOfHits].recipe.url
+                            // console.log("*** Url's")
+                            // console.log(srcUrl)
+
+
+                    }
 
                 });
             });
