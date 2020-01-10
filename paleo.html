@@ -10,33 +10,23 @@
 
 <body>
 
+   
     <div class="top-bar">
-        <div class="top-bar-left">
-            <ul class="menu">
-                <li class="menu-text">The Chef's pick</li>
-            </ul>
-        </div>
         <div class="top-bar-right">
             <ul class="menu">
                 <li class="omni"><a href="index.html">Omnivore</a></li>
                 <li class="vegata"><a href="vegata.html">Vegetarian</a></li>
                 <li class="vegan"><a href="vegan.html">Vegan</a></li>
-                <li class="carnivore"><a href="#">Carnivore</a></li>
+                <li class="carnivore"><a href="paleo.html">Paleo</a></li>
             </ul>
         </div>
 
+    </div>
 
-
-
-        <div class="container">
-            <input type="text">
-
-
-        </div>
 
         <div class="callout large primary">
             <div class="row column text-center">
-                <h1>The Chef's pick</h1>
+                <h1>Paleo</h1>
             </div>
         </div>
         <div class="row" id="content">
@@ -99,17 +89,21 @@
                         <li><a id="paleo_time" href="#">The Quickest</a></li>
                         <li><a id="paleo_rand" href="#">The Chef's Pick</a></li>
                     </ul>
-                    <!-- <h4>Authors</h4>
-                <ul>
-                    <li><a href="#"></a></li>
-                    <li><a href="#">Jesse</a></li>
-                    <li><a href="#">Mike</a></li>
-                    <li><a href="#">Holly</a></li>
-                </ul> -->
+         
+                    <div class="container">
+                        <h4> What's in Your Fridge? </h4>
+                        <div id="fridge"> </div>
+                        <input type="text" placeholder="Your Ingredients List " id="userInput"> <button type="button" class="button" id="add-ingredient" > Add </button>
+                        <button type="button" class="button" > Find Recipes </button> 
+            
+                    </div>
+        
                 </div>
             </div>
         </div>
-        <!-- <div class="row column">
+
+        
+    <div class="row column">
         <ul class="pagination" role="navigation" aria-label="Pagination">
             <li class="disabled">Previous</li>
             <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
@@ -121,19 +115,10 @@
             <li><a href="#" aria-label="Page 13">13</a></li>
             <li><a href="#" aria-label="Next page">Next</a></li>
         </ul>
-    </div> -->
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
         <script>
-            $(document).foundation();
-            $(document).ready(function() {
-                $.ajax({
-                    url: edaPaleo,
-                    method: "GET"
-                }).then(function(response) {
-                    console.log(response)
-                });
-            });
+         
         </script>
         <script src="script.js"></script>
 </body>
