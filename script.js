@@ -1,3 +1,4 @@
+$(document).ready(function(){
 // This is the key below for calling PALEO results from spoonacular api ($.007).
 const queryPaleoPop = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=popularity&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
 const queryPaleoPrice = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=price&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
@@ -116,12 +117,7 @@ best_omni.on("click", function() {
     $.ajax({
         url: queryAllPop,
         method: "GET"
-<<<<<<< HEAD
-    }).then(function(response) {
-        console.log(response);
-=======
     }).then(function (response) {
->>>>>>> 90fc8b7d891ba7a4948eb05d9055453bd3a24cce
 
     });
 });
@@ -132,20 +128,6 @@ cheap_omni.on("click", function() {
         method: "GET"
     }).then(function(response) {
         console.log(response);
-<<<<<<< HEAD
-=======
-      for (var i = 0; i <=9; i++){
-          var recipeTitle = response.results[i].title;
-          var recipeImage = response.results[i].image;
-          var recipeImageSrc = "https://spoonacular.com/recipeImages/" + recipeImage;
-          $(".medium-8 columns")
-          .append($("<div>"))
-          .append($("<h2>").html(recipeTitle))
-          .append($("<img src=" + recipeImageSrc + ">"))
-
-
-      }
->>>>>>> 90fc8b7d891ba7a4948eb05d9055453bd3a24cce
     });
 });
 fast_omni.on("click", function() {
@@ -155,13 +137,6 @@ fast_omni.on("click", function() {
         method: "GET"
     }).then(function(response) {
         console.log(response);
-<<<<<<< HEAD
-
-=======
-        // console.log(response.results[i].title)
-        for (var i=0; i<=9; i++){
-        console.log(response.results[i].id)};
->>>>>>> 90fc8b7d891ba7a4948eb05d9055453bd3a24cce
     });
 });
 rand_omni.on("click", function() {
@@ -296,4 +271,13 @@ rand_paleo.on("click", function() {
         console.log(response);
 
     });
+});
+
+$("#add-ingredient").on("click", function (){
+var userInput = $("#userInput").val();
+$("#fridge").append("<p>" + userInput + "</p>");
+$("#userInput").val("");
+
+})
+
 });
