@@ -6,10 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The Chef's Pick</title>
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
 
-    <!-- Using slick JS 3rd party library. -->
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
 </head>
 
 <body background="https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fcdn-image.foodandwine.com%2Fsites%2Fdefault%2Ffiles%2F1515598922%2Fsmorgasbord-XL-RECIPE0218.jpg&w=450&c=sc&poi=face&q=85">
@@ -111,32 +110,21 @@
                     <li><a id="omni_rand" href="#">The Chef's Pick</a></li>
                 </ul>
 
-
+            
                 <div class="container">
                     <h4> What's in Your Fridge? </h4>
-                    <input type="text" type="submit" placeholder=" Your Ingredients (3) ">
-                    <button type="button" class="button" id="addButton"> Add </button>
-                    <button type="button" class="button" id="findButton"> Find Recipes </button>
-                    <div id="addHere">does this work?</div>
+                    <div id="fridge"> </div>
+                    <input type="text" placeholder="Your Ingredients List " id="userInput">
+                    <button type="button" class="button" id="add-ingredient"> Add </button>
+                    <button type="button" class="button"> Find Recipes </button>
                 </div>
-
-                <!-- <h4>Authors</h4>
-                <ul>
-                    <li><a href="#"></a></li>
-                    <li><a href="#">Jesse</a></li>
-                    <li><a href="#">Mike</a></li>
-                    <li><a href="#">Holly</a></li>
-                </ul> -->
 
             </div>
         </div>
     </div>
 
-    <!-- Some more slick JS library links -->
-    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>
-</bodybackground="https://assets3.roadtrippers.com/uploads/blog_post/main_picture/3564/-quality_60_-interlace_Plane_-resize_640x360_U__-gravity_center_-extent_640x360/stelvio-pass.jpg">
+    
+</body>
 
 </html>
 
@@ -155,17 +143,7 @@
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
         <script>
-            $(document).foundation();
-            // This loads the page automatically.
-            $(document).ready(function() {
-                $.ajax({
-                    url: edaOmni,
-                    method: "GET"
-                }).then(function(response) {
-                    console.log(response);
-
-                });
-            });
+         
         </script>
         <script src="script.js"></script>
 

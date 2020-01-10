@@ -2,22 +2,9 @@
 // Brian's Spoonacular API Key:  1217e1705a7c427998470eed6fbfe388
 // Dean's Spoonacular API Key:   3f49daeedf3244208518bde7bf5fe0fd
 // Johns's Spoonacular API Key:  
+  
 
-// slick JS library stuff
 $(document).ready(function(){
-    $('.fadePics').slick({
-      fade: true,
-    });
-  });
-
-  $('.fadePics').slick({
-    dots: true,
-    infinite: true,
-    speed: 500,
-    fade: true,
-    cssEase: 'linear'
-  });
-
 // This is the key below for calling PALEO results from spoonacular api ($.007).
 const queryPaleoPop = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=popularity&addRecipeInformation=true&apiKey=1217e1705a7c427998470eed6fbfe388";
 const queryPaleoPrice = "https://api.spoonacular.com/recipes/complexSearch?diet=Paleo&number=3&type=main+course&sort=price&addRecipeInformation=true&apiKey=1217e1705a7c427998470eed6fbfe388";
@@ -148,6 +135,7 @@ cheap_omni.on("click", function () {
     }).then(function (response) {
         console.log(response);
 
+        //holding onto this for later
         for (var i = 0; i <= 9; i++) {
             var recipeTitle = response.results[i].title;
             var recipeImage = response.results[i].image;
@@ -308,4 +296,11 @@ rand_paleo.on("click", function () {
     });
 });
 
+$("#add-ingredient").on("click", function (){
+var userInput = $("#userInput").val();
+$("#fridge").append("<p>" + userInput + "</p>");
+$("#userInput").val("");
 
+})
+
+});
