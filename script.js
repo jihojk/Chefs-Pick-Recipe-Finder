@@ -314,11 +314,12 @@ $("#userInput").val("");
 
 });
 
+// Find Recipes button will recognize a click, take the allIngredients array and find recipes with those goodies in it.
 $("#find-recipes").on("click", function (){
 
-
+console.log(allIngredients.toString())
     $.ajax({
-        url: "https://api.spoonacular.com/recipes/complexSearch?query=banana+chocolate+sugar&apiKey=1217e1705a7c427998470eed6fbfe388",
+        url: "https://api.spoonacular.com/recipes/complexSearch?query=" + allIngredients.toString() + "&apiKey=1217e1705a7c427998470eed6fbfe388",
         method: "GET"
     }).then(function(response) {
         console.log(response);
