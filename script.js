@@ -292,7 +292,7 @@ $("#userInput").val("");
 });
 
 $("#find-recipes").on("click", function (){
-
+allIngredients[]
 
     $.ajax({
         url: "https://api.spoonacular.com/recipes/complexSearch?query=banana+chocolate+sugar&apiKey=1217e1705a7c427998470eed6fbfe388",
@@ -307,3 +307,13 @@ $("#find-recipes").on("click", function (){
 });
 
 });
+
+
+
+
+
+var randomDiv = ("<div>")
+var imgRecipe = ("<img>")
+
+imgRecipe.attr("src", imglink)
+randomDiv
