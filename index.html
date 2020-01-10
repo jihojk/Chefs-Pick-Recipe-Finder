@@ -4,65 +4,58 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Chef's pick</title>
-    <link rel="stylesheet" style="width: fit-content;" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <title>The Chef's Pick</title>
+    <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
     <div class="top-bar">
-        <div class="top-bar-left">
-            <ul class="menu">
-                <li class="menu-text">The Chef's pick</li>
-            </ul>
-        </div>
         <div class="top-bar-right">
             <ul class="menu">
-                <li class="omni"><a href="#">Omnivore</a></li>
+                <li class="omni"><a href="index.html">Omnivore</a></li>
                 <li class="vegata"><a href="vegata.html">Vegetarian</a></li>
                 <li class="vegan"><a href="vegan.html">Vegan</a></li>
-                <li class="carnivore"><a href="paleo.html">Carnivore</a></li>
+                <li class="carnivore"><a href="paleo.html">Paleo</a></li>
             </ul>
         </div>
 
+    </div>
 
 
 
-        <div class="container">
-            <input type="text" placeholder="Type your ingredients in here">
+    <div class="container">
+        <input type="text" placeholder="Type your ingredients in here">
 
+
+    </div>
+    </div>
+
+    <div class="callout large primary">
+        <div class="row column text-center">
+            <h1>The Chef's pick</h1>
+        </div>
+    </div>
+    <div class="row" id="content">
+        <div class="medium-8 columns">
 
         </div>
-
-        <div class="callout large primary">
-            <div class="row column text-center">
-                <h1>The Chef's pick</h1>
-            </div>
-        </div>
-        <div class="row" id="content">
-            <div class="medium-8 columns">
-
-            </div>
-            <div class="medium-3 columns" data-sticky-container>
-                <div class="sticky" data-sticky data-anchor="content">
-                    <h4>Categories</h4>
-                    <ul>
-                        <li><a id="omni_pop" href="#">The Best</a></li>
-                        <li><a id="omni_price" href="#">The Cheapest</a></li>
-                        <li><a id="omni_time" href="#">The Quickest</a></li>
-                        <li><a id="omni_rand" href="#">The Chef's Pick</a></li>
-                    </ul>
-                    <!-- <h4>Authors</h4>
+        <div class="medium-3 columns" data-sticky-container>
+            <div class="sticky" data-sticky data-anchor="content">
+                <h4>Categories</h4>
                 <ul>
-                    <li><a href="#"></a></li>
-                    <li><a href="#">Jesse</a></li>
-                    <li><a href="#">Mike</a></li>
-                    <li><a href="#">Holly</a></li>
-                </ul> -->
-                </div>
+                    <li><a id="omni_pop" href="#">The Best</a></li>
+                    <li><a id="omni_price" href="#">The Cheapest</a></li>
+                    <li><a id="omni_time" href="#">The Quickest</a></li>
+                    <li><a id="omni_rand" href="#">The Chef's Pick</a></li>
+                </ul>
             </div>
         </div>
-        <!-- <div class="row column">
+    </div>
+    <!-- <div class="row column">
         <ul class="pagination" role="navigation" aria-label="Pagination">
             <li class="disabled">Previous</li>
             <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
@@ -75,40 +68,40 @@
             <li><a href="#" aria-label="Next page">Next</a></li>
         </ul>
     </div> -->
-        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-        <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-        <script>
-            $(document).foundation();
-            // This loads the page automatically.
-            $(document).ready(function() {
-                $.ajax({
-                    url: edaOmni,
-                    method: "GET"
-                }).then(function(response) {
-                    console.log(response);
-                    for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
-                        let title = response.hits[indexOfHits].recipe.label;
-                        // console.log("*Name");
-                        // console.log(title);
-                        let image = response.hits[indexOfHits].recipe.image;
-                        // console.log("* image source");
-                        // console.log(image);
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+    <script>
+        $(document).foundation();
+        // This loads the page automatically.
+        $(document).ready(function() {
+            $.ajax({
+                url: edaOmni,
+                method: "GET"
+            }).then(function(response) {
+                console.log(response);
+                for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
+                    let title = response.hits[indexOfHits].recipe.label;
+                    // console.log("*Name");
+                    // console.log(title);
+                    let image = response.hits[indexOfHits].recipe.image;
+                    // console.log("* image source");
+                    // console.log(image);
 
-                        let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
-                            // console.log("** List of ingredients")
-                            // console.log(listTheI)
+                    let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
+                        // console.log("** List of ingredients")
+                        // console.log(listTheI)
 
-                        let srcUrl = response.hits[indexOfHits].recipe.url
-                            // console.log("*** Url's")
-                            // console.log(srcUrl)
+                    let srcUrl = response.hits[indexOfHits].recipe.url
+                        // console.log("*** Url's")
+                        // console.log(srcUrl)
 
 
-                    }
+                }
 
-                });
             });
-        </script>
-        <script src="script.js"></script>
+        });
+    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
