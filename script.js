@@ -125,6 +125,14 @@ best_omni.on("click", function () {
         method: "GET"
     }).then(function (response) {
 
+        var allPop_dish = response.results[i].title;
+        var allPop_image = response.results[i].image;
+
+        for (var i = 0; i < response.results.length; i++) {   
+            var dish_title = $("h3").text(allPop_dish);
+            var dish_image = $("img").attr("src", allPop_image);
+            $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+        }
     });
 });
 cheap_omni.on("click", function () {
@@ -295,12 +303,30 @@ rand_paleo.on("click", function () {
 
     });
 });
+var allIngredients = [];
 
 $("#add-ingredient").on("click", function (){
 var userInput = $("#userInput").val();
 $("#fridge").append("<p>" + userInput + "</p>");
+allIngredients.push(userInput);
+console.log(allIngredients);
 $("#userInput").val("");
 
-})
+});
+
+$("#find-recipes").on("click", function (){
+
+
+    $.ajax({
+        url: "https://api.spoonacular.com/recipes/complexSearch?query=banana+chocolate+sugar&apiKey=1217e1705a7c427998470eed6fbfe388",
+        method: "GET"
+    }).then(function(response) {
+        console.log(response);
+
+    });
+
+
+
+});
 
 });
