@@ -93,7 +93,8 @@
 
                     <div class="container">
                         <h4> What's in Your Fridge? </h4>
-                        <input type="text" placeholder="Your Ingredients (3) "> <button type="button" class="button" > Add </button>
+                        <div id="fridge"> </div>
+                        <input type="text" placeholder="Your Ingredients List " id="userInput"> <button type="button" class="button" id="add-ingredient" > Add </button>
                         <button type="button" class="button" > Find Recipes </button> 
             
                     </div>
@@ -107,7 +108,9 @@
                 </div>
             </div>
         </div>
-        <!-- <div class="row column">
+
+        
+    <div class="row column">
         <ul class="pagination" role="navigation" aria-label="Pagination">
             <li class="disabled">Previous</li>
             <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
@@ -122,17 +125,7 @@
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
         <script>
-            $(document).foundation();
-            // This loads the page automatically.
-            $(document).ready(function() {
-                $.ajax({
-                    url: edaOmni,
-                    method: "GET"
-                }).then(function(response) {
-                    console.log(response);
-
-                });
-            });
+         
         </script>
         <script src="script.js"></script>
 </body>
