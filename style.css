@@ -5,11 +5,43 @@ background-image: linear-gradient(#B22222, #FF4500, blue);
 }
 
 body {
-    /* background-color: rgba(0,0,255,0.3);  */
-    background:url(https://previews.123rf.com/images/lanastocker/lanastocker1706/lanastocker170600043/79343824-open-recipe-book-on-white-background-.jpg) no-repeat;
-    
+color:black;
+font-family: 'Open Sans', sans-serif;
+
 }
 
+#site-title{
+font-family: 'Open Sans', sans-serif;
+font-weight: bolder;
+}
+
+
+.search-box {
+width: 350px;
+height: 500px;
+border: solid black 1px;
+margin-top: 100px;
+}
+
+#fridge-title{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-family: 'Open Sans', sans-serif;
+
+
+
+}
+.button {
+width: 120px;
+display: inline-block;
+margin-left: 10px;
+margin-right: 10px;
+}
+
+#user-input{
+text-align: center;
+}
 
 @media print {
     body {

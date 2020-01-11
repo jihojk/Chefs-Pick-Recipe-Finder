@@ -7,14 +7,27 @@
     <title>The Chef's Pick</title>
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css">
 
+<style> 
+body{
+    background: url(veggies.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+</style>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
 </head>
+
 
 
 
 <body
     background="https://previews.123rf.com/images/lanastocker/lanastocker1706/lanastocker170600043/79343824-open-recipe-book-on-white-background-.jpg">
+
 
 
     <div class="top-bar">
@@ -32,19 +45,60 @@
 
 
     <div class="container">
+
+        <div class="row column text-center">
+            <h1 id="site-title">The Chef's Pick</h1 id="site-title">
+
         <input type="text" placeholder="Type your ingredients in here">
 
 
-    </div>
+        </div>
     </div>
 
     <div class="callout large primary">
         <div class="row column text-center">
             <h1>The Chef's pick</h1>
+
         </div>
     </div>
     <div class="row" id="content">
         <div class="medium-8 columns">
+
+          
+          
+            <div class="blog-post">
+                <h3>Awesome blog post title <small>3/6/2015</small></h3>
+                <img class="thumbnail" src="https://placehold.it/850x350">
+                <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
+                    congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
+                    Quisque eget odio ac lectus vestibulum
+                    faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
+                <div class="callout">
+                    <ul class="menu simple">
+                        <li><a href="#">Author: Mike Mikers</a></li>
+                        <li><a href="#">Comments: 3</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="medium-3 columns" data-sticky-container>
+        <div class="sticky" data-sticky data-anchor="content">
+            <h4>Categories</h4>
+            <ul>
+                <li><a id="omni_pop" href="#">The Best</a></li>
+                <li><a id="omni_price" href="#">The Cheapest</a></li>
+                <li><a id="omni_time" href="#">The Quickest</a></li>
+                <li><a id="omni_rand" href="#">The Chef's Pick</a></li>
+            </ul>
+
+
+            <div class="container search-box">
+                <h4 id="fridge-title"> What's in Your Fridge? </h4>
+                <div id="fridge"> </div>
+                <input type="text" placeholder="Your Ingredients List " id="userInput">
+                <button type="button" class="button success" id="add-ingredient"> Add </button>
+                <button type="button" class="button warning" id="find-recipes"> Find Recipes </button>
+
 
         </div>
         <div class="medium-3 columns" data-sticky-container>
@@ -59,6 +113,11 @@
             </div>
         </div>
     </div>
+
+    </div>
+
+    
+  
     <!-- <div class="row column">
         <ul class="pagination" role="navigation" aria-label="Pagination">
             <li class="disabled">Previous</li>
@@ -105,6 +164,7 @@
             });
         });
     </script>
+
     <script src="script.js"></script>
 </body>
 
