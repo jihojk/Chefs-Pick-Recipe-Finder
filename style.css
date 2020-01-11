@@ -1,3 +1,18 @@
 #theHead {
-    background-image: linear-gradient(#B22222, #FF4500, blue);
+
+
+background-image: linear-gradient(#B22222, #FF4500, blue);
 }
+
+body {
+    /* background-color: rgba(0,0,255,0.3);  */
+    background:url(https://previews.123rf.com/images/lanastocker/lanastocker1706/lanastocker170600043/79343824-open-recipe-book-on-white-background-.jpg) no-repeat;
+    
+}
+
+
+@media print {
+    body {
+       content:url(https://previews.123rf.com/images/lanastocker/lanastocker1706/lanastocker170600043/79343824-open-recipe-book-on-white-background-.jpg);
+      }
+    }
