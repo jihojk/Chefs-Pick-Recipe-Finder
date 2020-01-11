@@ -73,33 +73,47 @@
     <script>
         $(document).foundation();
         // This loads the page automatically.
-        $(document).ready(function() {
-            $.ajax({
-                url: edaOmni,
-                method: "GET"
-            }).then(function(response) {
-                console.log(response);
-                for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
-                    let title = response.hits[indexOfHits].recipe.label;
-                    // console.log("*Name");
-                    // console.log(title);
-                    let image = response.hits[indexOfHits].recipe.image;
-                    // console.log("* image source");
-                    // console.log(image);
+        // $(document).ready(function() {
+        //     $.ajax({
+        //         url: edaOmni,
+        //         method: "GET"
+        //     }).then(function(response) {
+        //         // console.log(response);
+        //         for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
+        //             let title = response.hits[indexOfHits].recipe.label;
+        //             // console.log("*Name");
+        //             // console.log(title);
+        //             let image = response.hits[indexOfHits].recipe.image;
+        //             // console.log("* image source");
+        //             // console.log(image);
 
-                    let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
-                        // console.log("** List of ingredients")
-                        // console.log(listTheI)
+        //             let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
+        //                 // console.log("** List of ingredients")
+        //                 // console.log(listTheI)
 
-                    let srcUrl = response.hits[indexOfHits].recipe.url
-                        // console.log("*** Url's")
-                        // console.log(srcUrl)
+        //             let srcUrl = response.hits[indexOfHits].recipe.url
+        //                 // console.log("*** Url's")
+        //                            // console.log(srcUrl)
+        // var blog_post = $("<div class = 'blog-post'>" +
+        //             "<h3>" + title + "</h3>" +
+        //             "<img class = 'thumbnail' src = " + imageSource + ">" +
+        //             "<p>" + listOf_ingredients + "</p>" +
+        //             "<div class='callout'>" +
+        //             "<ul class='menu simple'>" +
+        //             "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+        //             "<li></ul>" +
+        //             "</div>" +
+        //             "</div>");
+        //         for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+        //             $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+        //             console.log(blog_post)
+        //         }
 
 
-                }
+        // }
 
-            });
-        });
+        // });
+        // });
     </script>
     <script src="script.js"></script>
 </body>

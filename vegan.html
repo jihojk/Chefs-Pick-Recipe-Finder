@@ -38,54 +38,6 @@
         </div>
         <div class="row" id="content">
             <div class="medium-8 columns">
-                <div id="1Vegan" class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="blog-post">
-                    <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                    <img class="thumbnail" src="https://placehold.it/850x350">
-                    <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
-                        faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                    <div class="callout">
-                        <ul class="menu simple">
-                            <li><a href="#">Author: Mike Mikers</a></li>
-                            <li><a href="#">Comments: 3</a></li>
-                        </ul>
-                    </div>
-                </div>
             </div>
             <div class="medium-3 columns" data-sticky-container>
                 <div class="sticky" data-sticky data-anchor="content">
@@ -129,31 +81,45 @@
         <script>
             $(document).foundation();
             // This loads the page automatically
-            $(document).ready(function() {
-                $.ajax({
-                    url: edaVegan,
-                    method: "GET"
-                }).then(function(response) {
-                    for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
-                        let title = response.hits[indexOfHits].recipe.label;
-                        // console.log("*Name");
-                        // console.log(title);
-                        let image = response.hits[indexOfHits].recipe.image;
-                        // console.log("* image source");
-                        // console.log(image);
+            // $(document).ready(function() {
+            //     $.ajax({
+            //         url: edaVegan,
+            //         method: "GET"
+            //     }).then(function(response) {
+            //         for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
+            //             let title = response.hits[indexOfHits].recipe.label;
+            //             // console.log("*Name");
+            //             // console.log(title);
+            //             let image = response.hits[indexOfHits].recipe.image;
+            //             // console.log("* image source");
+            //             // console.log(image);
 
-                        let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
-                            // console.log("** List of ingredients")
-                            // console.log(listTheI)
+            //             let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
+            //                 // console.log("** List of ingredients")
+            //                 // console.log(listTheI)
 
-                        let srcUrl = response.hits[indexOfHits].recipe.url
-                        console.log("*** Url's")
-                        console.log(srcUrl)
+            //             let srcUrl = response.hits[indexOfHits].recipe.url
+            //             console.log("*** Url's")
+            //                        // console.log(srcUrl)
+            // var blog_post = $("<div class = 'blog-post'>" +
+            //             "<h3>" + title + "</h3>" +
+            //             "<img class = 'thumbnail' src = " + imageSource + ">" +
+            //             "<p>" + listOf_ingredients + "</p>" +
+            //             "<div class='callout'>" +
+            //             "<ul class='menu simple'>" +
+            //             "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+            //             "<li></ul>" +
+            //             "</div>" +
+            //             "</div>");
+            //         for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+            //             $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+            //             console.log(blog_post)
+            //         }
 
 
-                    }
-                });
-            });
+            //         }
+            //     });
+            // });
         </script>
         <script src="script.js"></script>
 </body>
