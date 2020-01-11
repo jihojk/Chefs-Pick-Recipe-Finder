@@ -11,8 +11,11 @@
 
 </head>
 
+
+
 <body
     background="https://previews.123rf.com/images/lanastocker/lanastocker1706/lanastocker170600043/79343824-open-recipe-book-on-white-background-.jpg">
+
 
     <div class="top-bar">
         <div class="top-bar-right">
@@ -28,63 +31,81 @@
 
 
 
+    <div class="container">
+        <input type="text" placeholder="Type your ingredients in here">
+
+
+    </div>
+    </div>
+
     <div class="callout large primary">
         <div class="row column text-center">
-            <h1>The Chef's Pick</h1>
+            <h1>The Chef's pick</h1>
         </div>
     </div>
-
     <div class="row" id="content">
         <div class="medium-8 columns">
-            <div class="blog-post">
-                <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                <img class="thumbnail" src="https://placehold.it/850x350">
-                <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim
-                    congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci.
-                    Quisque eget odio ac lectus vestibulum
-                    faucibus eget in metus. In pellentesque faucibus vestibulum. Nulla at nulla justo, eget luctus.</p>
-                <div class="callout">
-                    <ul class="menu simple">
-                        <li><a href="#">Author: Mike Mikers</a></li>
-                        <li><a href="#">Comments: 3</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <//div> <div class="medium-3 columns" data-sticky-container>
-        <div class="sticky" data-sticky data-anchor="content">
-            <h4>Categories</h4>
-            <ul>
-                <li><a id="omni_pop" href="#">The Best</a></li>
-                <li><a id="omni_price" href="#">The Cheapest</a></li>
-                <li><a id="omni_time" href="#">The Quickest</a></li>
-                <li><a id="omni_rand" href="#">The Chef's Pick</a></li>
-            </ul>
-
-
-            <div class="container">
-                <h4> What's in Your Fridge? </h4>
-                <div id="fridge"> </div>
-                <input type="text" placeholder="Your Ingredients List " id="userInput">
-                <button type="button" class="button" id="add-ingredient"> Add </button>
-                <button type="button" class="button" id="find-recipes"> Find Recipes </button>
-
-            </div>
 
         </div>
-
+        <div class="medium-3 columns" data-sticky-container>
+            <div class="sticky" data-sticky data-anchor="content">
+                <h4>Categories</h4>
+                <ul>
+                    <li><a id="omni_pop" href="#">The Best</a></li>
+                    <li><a id="omni_price" href="#">The Cheapest</a></li>
+                    <li><a id="omni_time" href="#">The Quickest</a></li>
+                    <li><a id="omni_rand" href="#">The Chef's Pick</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    </div>
-    </div>
-
-
+    <!-- <div class="row column">
+        <ul class="pagination" role="navigation" aria-label="Pagination">
+            <li class="disabled">Previous</li>
+            <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+            <li><a href="#" aria-label="Page 2">2</a></li>
+            <li><a href="#" aria-label="Page 3">3</a></li>
+            <li><a href="#" aria-label="Page 4">4</a></li>
+            <li class="ellipsis"></li>
+            <li><a href="#" aria-label="Page 12">12</a></li>
+            <li><a href="#" aria-label="Page 13">13</a></li>
+            <li><a href="#" aria-label="Next page">Next</a></li>
+        </ul>
+    </div> -->
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
     <script>
+        $(document).foundation();
+        // This loads the page automatically.
+        $(document).ready(function() {
+            $.ajax({
+                url: edaOmni,
+                method: "GET"
+            }).then(function(response) {
+                console.log(response);
+                for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
+                    let title = response.hits[indexOfHits].recipe.label;
+                    // console.log("*Name");
+                    // console.log(title);
+                    let image = response.hits[indexOfHits].recipe.image;
+                    // console.log("* image source");
+                    // console.log(image);
 
+                    let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
+                        // console.log("** List of ingredients")
+                        // console.log(listTheI)
+
+                    let srcUrl = response.hits[indexOfHits].recipe.url
+                        // console.log("*** Url's")
+                        // console.log(srcUrl)
+
+
+                }
+
+            });
+        });
     </script>
     <script src="script.js"></script>
-
 </body>
 
 </html>

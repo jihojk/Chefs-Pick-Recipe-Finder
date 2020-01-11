@@ -23,6 +23,13 @@
     </div>
 
 
+    <<<<<<< HEAD <div class="container">
+        <input type="text" placeholder="Type your ingredients in here">
+
+
+        </div>
+
+        ======= >>>>>>> c47422d059f8ccb4c0f0567cec8096c486d66bf1
         <div class="callout large primary">
             <div class="row column text-center">
                 <h1>Vegetarian</h1>
@@ -30,7 +37,7 @@
         </div>
         <div class="row" id="content">
             <div class="medium-8 columns">
-                <div class="blog-post">
+                <div id="1Vegata" class="blog-post">
                     <h3>Awesome blog post title <small>3/6/2015</small></h3>
                     <img class="thumbnail" src="https://placehold.it/850x350">
                     <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
@@ -42,7 +49,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="blog-post">
+                <div id="2Vegata" class="blog-post">
                     <h3>Awesome blog post title <small>3/6/2015</small></h3>
                     <img class="thumbnail" src="https://placehold.it/850x350">
                     <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
@@ -54,7 +61,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="blog-post">
+                <div id="3Vegata" class="blog-post">
                     <h3>Awesome blog post title <small>3/6/2015</small></h3>
                     <img class="thumbnail" src="https://placehold.it/850x350">
                     <p>Praesent id metus massa, ut blandit odio. Proin quis tortor orci. Etiam at risus et justo dignissim congue. Donec congue lacinia dui, a porttitor lectus condimentum laoreet. Nunc eu ullamcorper orci. Quisque eget odio ac lectus vestibulum
@@ -89,24 +96,51 @@
                         <li><a id="vegata_rand" href="#">The Chef's Pick</a></li>
                     </ul>
 
-           
+
                     <div class="container">
                         <h4> What's in Your Fridge? </h4>
                         <div id="fridge"> </div>
-                        <input type="text" placeholder="Your Ingredients List " id="userInput"> <button type="button" class="button" id="add-ingredient" > Add </button>
-                        <button type="button" class="button" > Find Recipes </button> 
-            
+                        <input type="text" placeholder="Your Ingredients List " id="userInput"> <button type="button" class="button" id="add-ingredient"> Add </button>
+                        <button type="button" class="button"> Find Recipes </button>
+
                     </div>
-        
+
                 </div>
             </div>
         </div>
 
-        
+
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
         <script>
-         
+            $(document).foundation();
+            // This loads the document automatically
+            $(document).ready(function() {
+                $.ajax({
+                    url: edaVegata,
+                    method: "GET"
+                }).then(function(response) {
+                    for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
+                        let title = response.hits[indexOfHits].recipe.label;
+                        // console.log("*Name");
+                        // console.log(title);
+                        let image = response.hits[indexOfHits].recipe.image;
+                        // console.log("* image source");
+                        // console.log(image);
+
+                        let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
+                            // console.log("** List of ingredients")
+                            // console.log(listTheI)
+
+                        let srcUrl = response.hits[indexOfHits].recipe.url
+                            // console.log("*** Url's")
+                            // console.log(srcUrl)
+
+
+                    };
+
+                });
+            });
         </script>
         <script src="script.js"></script>
 </body>
