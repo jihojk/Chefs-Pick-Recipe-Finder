@@ -7,12 +7,22 @@
     <title>The Chef's Pick</title>
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css">
 
+<style> 
+body{
+    background: url(veggies.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+</style>
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="style.css">
 </head>
 
-<body
-    background="https://previews.123rf.com/images/lanastocker/lanastocker1706/lanastocker170600043/79343824-open-recipe-book-on-white-background-.jpg">
+<body>
 
     <div class="top-bar">
         <div class="top-bar-right">
@@ -28,9 +38,9 @@
 
 
 
-    <div class="callout large primary">
+    <div class="container">
         <div class="row column text-center">
-            <h1>The Chef's Pick</h1>
+            <h1 id="site-title">The Chef's Pick</h1 id="site-title">
         </div>
     </div>
 
@@ -51,7 +61,7 @@
                 </div>
             </div>
         </div>
-        <//div> <div class="medium-3 columns" data-sticky-container>
+        <div class="medium-3 columns" data-sticky-container>
         <div class="sticky" data-sticky data-anchor="content">
             <h4>Categories</h4>
             <ul>
@@ -62,12 +72,12 @@
             </ul>
 
 
-            <div class="container">
-                <h4> What's in Your Fridge? </h4>
+            <div class="container search-box">
+                <h4 id="fridge-title"> What's in Your Fridge? </h4>
                 <div id="fridge"> </div>
                 <input type="text" placeholder="Your Ingredients List " id="userInput">
-                <button type="button" class="button" id="add-ingredient"> Add </button>
-                <button type="button" class="button" id="find-recipes"> Find Recipes </button>
+                <button type="button" class="button success" id="add-ingredient"> Add </button>
+                <button type="button" class="button warning" id="find-recipes"> Find Recipes </button>
 
             </div>
 
@@ -77,12 +87,8 @@
     </div>
     </div>
 
-
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-    <script>
-
-    </script>
     <script src="script.js"></script>
 
 </body>
