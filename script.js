@@ -162,7 +162,7 @@ $(document).ready(function() {
             // For every API call that we use our up our free trial time.
             // Be sure to read through entire for loop.
 
-            // console.log(response);
+            console.log(response);
             $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
@@ -171,18 +171,18 @@ $(document).ready(function() {
                 let imageSource = response.results[indexOfResults].image.toString();
                 // console.log("** image source")
                 // console.log(imageSource)
-                let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
 
                 // This is the variable you will need to use to access the list of ingredients
 
                 let listTheI = [];
 
-                for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                    // console.log(steps[ii]);
-                    for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                        // console.log(steps[ii].ingredients[iii].name);
-                        if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                            listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
                         }
 
                     }
@@ -230,6 +230,7 @@ $(document).ready(function() {
             url: queryAllPrice,
             method: "GET"
         }).then(function(response) {
+            console.log(response)
             $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
@@ -241,19 +242,21 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                console.log("analyzed" + response.results[indexOfResults].analyzedInstructions[0])
+                if (response.results[indexOfResults].analyzedInstructions[0]) {}
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -300,19 +303,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -360,19 +363,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -421,19 +424,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -480,19 +483,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -540,19 +543,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -600,19 +603,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -662,50 +665,51 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
-                // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
-                let listOf_ingredients = listTheI.toString()
-                    // console.log("*** final list");
-                    // console.log(listOf_ingredients);
-                let srcUrl = response.results[indexOfResults].sourceUrl.toString();
-                // console.log("**** url's");
-                // console.log(srcUrl);
-                // console.log("  ")
-
-
+                    }
+                    // }
+                    // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+                    let listOf_ingredients = listTheI.toString()
+                        // console.log("*** final list");
+                        // console.log(listOf_ingredients);
+                    let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+                    // console.log("**** url's");
+                    // console.log(srcUrl);
+                    // console.log("  ")
 
 
-                blog_post = $("<div class = 'blog-post'>" +
-                    "<h3>" + title + "</h3>" +
-                    "<img class = 'thumbnail' src = " + imageSource + ">" +
-                    "<p>" + listOf_ingredients + "</p>" +
-                    "<div class='callout'>" +
-                    "<ul class='menu simple'>" +
-                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
-                    "<li></ul>" +
-                    "</div>" +
-                    "</div>");
-                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
-                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
-                    console.log(blog_post)
+
+
+                    blog_post = $("<div class = 'blog-post'>" +
+                        "<h3>" + title + "</h3>" +
+                        "<img class = 'thumbnail' src = " + imageSource + ">" +
+                        "<p>" + listOf_ingredients + "</p>" +
+                        "<div class='callout'>" +
+                        "<ul class='menu simple'>" +
+                        "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                        "<li></ul>" +
+                        "</div>" +
+                        "</div>");
+                    for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                        $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                        console.log(blog_post)
+                    }
+
                 }
 
-            }
 
-
-        });
+            };
+        })
     });
     cheap_vegata.on("click", function() {
 
@@ -724,19 +728,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -785,19 +789,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -845,19 +849,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -906,19 +910,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -966,19 +970,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -1027,19 +1031,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -1087,15 +1091,15 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                    // console.log(steps[ii]);
-                    for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                        // console.log(steps[ii].ingredients[iii].name);
-                        if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                            listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
                         }
 
                         //     }
@@ -1161,19 +1165,19 @@ $(document).ready(function() {
 
 
                     // This is the variable you will need to use to access the list of ingredients
-                    // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                    let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                     let listTheI = [];
 
-                    // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                    //     // console.log(steps[ii]);
-                    //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                    //         // console.log(steps[ii].ingredients[iii].name);
-                    //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                    //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                    //         }
+                    for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                        // console.log(step[ii]);
+                        for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                            // console.log(step[ii].ingredients[iii].name);
+                            if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                                listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                            }
 
-                    //     }
-                    // }
+                        }
+                    }
                     // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                     let listOf_ingredients = listTheI.toString()
                         // console.log("*** final list");

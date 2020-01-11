@@ -7,11 +7,26 @@
     <title>The Chef's Pick</title>
     <link rel="stylesheet" href="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.min.css">
     <!-- CSS Link -->
-    <link rel="stylesheet" href="style.css">
 
+    <style>
+        body {
+            background: url(veggies.jpg) no-repeat center center fixed;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 
+
+
+
 <body>
+
 
     <div class="top-bar">
         <div class="top-bar-right">
@@ -28,20 +43,33 @@
 
 
     <div class="container">
-        <input type="text" placeholder="Type your ingredients in here">
 
-
-    </div>
-    </div>
-
-    <div class="callout large primary">
         <div class="row column text-center">
-            <h1>The Chef's pick</h1>
+            <h1 id="site-title">The Chef's Pick</h1 id="site-title">
+
         </div>
+    </div>
+
     </div>
     <div class="row" id="content">
         <div class="medium-8 columns">
 
+
+
+            <div class="blog-post">
+                <h3>Awesome blog post title <small>3/6/2015</small></h3>
+                <div id="recipePicHere">
+                    <a href="#"></a>
+                    <p id="recipeTitle"></p id="recipeTitle">
+                    <p id="listTheIngr"></p>
+                </div>
+                <div class="callout">
+                    <ul class="menu simple">
+                        <li><a href="#" id="srcUrlSpot">Click here to get the recipe</a></li>
+                        <li><a href="#">Comments: 3</a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="medium-3 columns" data-sticky-container>
             <div class="sticky" data-sticky data-anchor="content">
@@ -52,10 +80,32 @@
                     <li><a id="omni_time" href="#">The Quickest</a></li>
                     <li><a id="omni_rand" href="#">The Chef's Pick</a></li>
                 </ul>
+
+
+                <div class="container search-box">
+                    <h4 id="fridge-title"> What's in Your Fridge? </h4>
+                    <div id="fridge"> </div>
+                    <input type="text" placeholder="Your Ingredients List " id="userInput">
+                    <button type="button" class="button success" id="add-ingredient"> Add </button>
+                    <button type="button" class="button warning" id="find-recipes"> Find Recipes </button>
+
+
+                </div>
+                <div class="medium-3 columns" data-sticky-container>
+                    <div class="sticky" data-sticky data-anchor="content">
+                        <h4>Categories</h4>
+                        <ul>
+                            <li><a id="omni_pop" href="#">The Best</a></li>
+                            <li><a id="omni_price" href="#">The Cheapest</a></li>
+                            <li><a id="omni_time" href="#">The Quickest</a></li>
+                            <li><a id="omni_rand" href="#">The Chef's Pick</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+
         </div>
-    </div>
-    <!-- <div class="row column">
+        <!-- <div class="row column">
         <ul class="pagination" role="navigation" aria-label="Pagination">
             <li class="disabled">Previous</li>
             <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
@@ -68,54 +118,101 @@
             <li><a href="#" aria-label="Next page">Next</a></li>
         </ul>
     </div> -->
-    <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
-    <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
-    <script>
-        $(document).foundation();
-        // This loads the page automatically.
-        // $(document).ready(function() {
-        //     $.ajax({
-        //         url: edaOmni,
-        //         method: "GET"
-        //     }).then(function(response) {
-        //         // console.log(response);
-        //         for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
-        //             let title = response.hits[indexOfHits].recipe.label;
-        //             // console.log("*Name");
-        //             // console.log(title);
-        //             let image = response.hits[indexOfHits].recipe.image;
-        //             // console.log("* image source");
-        //             // console.log(image);
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
+        <script>
+            $(document).foundation();
+            // This loads the page automatically.
+            // $(document).ready(function() {
+            //     $.ajax({
+            //         url: edaOmni,
+            //         method: "GET"
+            //     }).then(function(response) {
+            //         // console.log(response);
+            //         for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
+            //             let title = response.hits[indexOfHits].recipe.label;
+            //             // console.log("*Name");
+            //             // console.log(title);
+            //             let image = response.hits[indexOfHits].recipe.image;
+            //             // console.log("* image source");
+            //             // console.log(image);
 
-        //             let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
-        //                 // console.log("** List of ingredients")
-        //                 // console.log(listTheI)
+            //             let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
+            //                 // console.log("** List of ingredients")
+            //                 // console.log(listTheI)
 
-        //             let srcUrl = response.hits[indexOfHits].recipe.url
-        //                 // console.log("*** Url's")
-        //                            // console.log(srcUrl)
-        // var blog_post = $("<div class = 'blog-post'>" +
-        //             "<h3>" + title + "</h3>" +
-        //             "<img class = 'thumbnail' src = " + imageSource + ">" +
-        //             "<p>" + listOf_ingredients + "</p>" +
-        //             "<div class='callout'>" +
-        //             "<ul class='menu simple'>" +
-        //             "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
-        //             "<li></ul>" +
-        //             "</div>" +
-        //             "</div>");
-        //         for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
-        //             $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
-        //             console.log(blog_post)
-        //         }
+            //             let srcUrl = response.hits[indexOfHits].recipe.url
+            //                 // console.log("*** Url's")
+            //                            // console.log(srcUrl)
+            // var blog_post = $("<div class = 'blog-post'>" +
+            //             "<h3>" + title + "</h3>" +
+            //             "<img class = 'thumbnail' src = " + imageSource + ">" +
+            //             "<p>" + listOf_ingredients + "</p>" +
+            //             "<div class='callout'>" +
+            //             "<ul class='menu simple'>" +
+            //             "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+            //             "<li></ul>" +
+            //             "</div>" +
+            //             "</div>");
+            //         for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+            //             $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+            //             console.log(blog_post)
+            //         }
 
 
-        // }
+            // }
 
-        // });
-        // });
-    </script>
-    <script src="script.js"></script>
+            // });
+            // });
+        </script>
+
+
+        <script>
+            var edaOmni = "https://api.edamam.com/search?q=chicken&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3"
+            $(document).ready(function() {
+                $.ajax({
+                    url: edaOmni,
+                    method: "GET"
+                }).then(function(response) {
+                    console.log(response);
+                    for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
+
+                        // Add the recipe title
+                        let title = response.hits[indexOfHits].recipe.label;
+                        $("#recipeTitle").html(title);
+
+                        // Add the recipe image (still shows up as objects)
+                        let image = response.hits[indexOfHits].recipe.image;
+                        var recipePic = image.toString();
+                        // Adding CSS to the image variable above
+                        var recipeImg = $("<img>");
+                        recipeImg.attr("src", recipePic);
+                        recipeImg.css("width", "180px");
+                        recipeImg.css("height", "180px");
+                        // append image to page
+                        recipePicHere.append(recipeImg);
+
+                        // Add recipe url to
+                        let srcUrl = response.hits[indexOfHits].recipe.url
+                        $("#srcUrlSpot").attr("href", srcUrl);
+
+                        // Turn the image into a link for the recipe directions 
+                        var a = $("<a  target='_blank' href=" + srcUrl + "></a>");
+                        console.log(a);
+
+                        let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
+                            // console.log("** List of ingredients")
+                        console.log(listTheI)
+                        $("#listTheIngr").html(listTheI);
+
+                    }
+                });
+            });
+        </script>
+
+
+        <script src="script.js"></script>
+
 </body>
 
 </html>
