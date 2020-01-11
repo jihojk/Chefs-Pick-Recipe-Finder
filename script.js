@@ -22,7 +22,7 @@ $(document).ready(function() {
     var edaVegan = "https://api.edamam.com/search?q=tofu&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3&Health=vegan"
 
     // Here is another experimental key for calling VEGETARIAN results from spoonacular api ($.007).
-    var queryVegata = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=popularity&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
+    var queryVegataPop = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=popularity&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
     var queryVegataPrice = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=price&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
     var queryVegataFast = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=time&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
     var queryVegataRand = "https://api.spoonacular.com/recipes/complexSearch?diet=Vegetarian&number=3&type=main+course&sort=random&addRecipeInformation=true&apiKey=3f49daeedf3244208518bde7bf5fe0fd";
@@ -162,8 +162,8 @@ $(document).ready(function() {
             // For every API call that we use our up our free trial time.
             // Be sure to read through entire for loop.
 
-            // console.log(response);
-
+            console.log(response);
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -171,18 +171,18 @@ $(document).ready(function() {
                 let imageSource = response.results[indexOfResults].image.toString();
                 // console.log("** image source")
                 // console.log(imageSource)
-                let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
 
                 // This is the variable you will need to use to access the list of ingredients
 
                 let listTheI = [];
 
-                for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                    // console.log(steps[ii]);
-                    for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                        // console.log(steps[ii].ingredients[iii].name);
-                        if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                            listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
                         }
 
                     }
@@ -192,29 +192,36 @@ $(document).ready(function() {
                     // console.log("*** final list");
                     // console.log(listOf_ingredients);
                 let srcUrl = response.results[indexOfResults].sourceUrl.toString();
-                console.log("**** url's");
-                console.log(srcUrl);
+                // console.log("**** url's");
+                // console.log(srcUrl);
                 // console.log("  ")
 
-
-
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
-
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
 
             }
 
-            var allPop_dish = response.results[i].title;
-            var allPop_image = response.results[i].image;
 
-            for (var i = 0; i < response.results.length; i++) {
-                var dish_title = $("h3").text(allPop_dish);
-                var dish_image = $("img").attr("src", allPop_image);
-                $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
-            }
+            // This is code for appending the desired results
+
+
+
+
+
+
+
         });
     });
     cheap_omni.on("click", function() {
@@ -223,6 +230,8 @@ $(document).ready(function() {
             url: queryAllPrice,
             method: "GET"
         }).then(function(response) {
+            console.log(response)
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -233,19 +242,21 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                console.log("analyzed" + response.results[indexOfResults].analyzedInstructions[0])
+                if (response.results[indexOfResults].analyzedInstructions[0]) {}
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -257,27 +268,22 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
-
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
-
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
             }
 
-            //holding onto this for later
-            for (var i = 0; i <= 9; i++) {
-                var recipeTitle = response.results[i].title;
-                var recipeImage = response.results[i].image;
-                var recipeImageSrc = "https://spoonacular.com/recipeImages/" + recipeImage;
-                $(".medium-8 columns")
-                    .append($("<div>"))
-                    .append($("<h2>").html(recipeTitle))
-                    .append($("<img src=" + recipeImageSrc + ">"))
-
-
-            }
         });
     });
     fast_omni.on("click", function() {
@@ -286,6 +292,7 @@ $(document).ready(function() {
             url: queryAllFast,
             method: "GET"
         }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -296,19 +303,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -320,13 +327,21 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
 
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
-
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
             }
 
         });
@@ -337,6 +352,7 @@ $(document).ready(function() {
             url: queryAllRand,
             method: "GET"
         }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -347,19 +363,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -371,12 +387,21 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
 
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
 
             }
         });
@@ -388,6 +413,7 @@ $(document).ready(function() {
             url: queryVeganPop,
             method: "GET"
         }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -398,19 +424,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -422,13 +448,21 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
 
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
-
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
             }
         });
     });
@@ -438,6 +472,7 @@ $(document).ready(function() {
             url: queryVeganPrice,
             method: "GET"
         }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -448,19 +483,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -472,13 +507,21 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
 
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
-
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
             }
 
         });
@@ -489,6 +532,7 @@ $(document).ready(function() {
             url: queryVeganFast,
             method: "GET"
         }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -499,19 +543,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -523,13 +567,21 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
 
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
-
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
             }
 
         });
@@ -540,6 +592,7 @@ $(document).ready(function() {
             url: queryVeganRand,
             method: "GET"
         }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -550,19 +603,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -574,12 +627,21 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
 
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
 
             }
 
@@ -592,16 +654,7 @@ $(document).ready(function() {
             url: queryVegataPop,
             method: "GET"
         }).then(function(response) {
-            console.log(response);
-
-        });
-    });
-    cheap_vegata.on("click", function() {
-
-        $.ajax({
-            url: queryVegataPrice,
-            method: "GET"
-        }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -612,19 +665,82 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                    // }
+                    // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+                    let listOf_ingredients = listTheI.toString()
+                        // console.log("*** final list");
+                        // console.log(listOf_ingredients);
+                    let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+                    // console.log("**** url's");
+                    // console.log(srcUrl);
+                    // console.log("  ")
+
+
+
+
+                    blog_post = $("<div class = 'blog-post'>" +
+                        "<h3>" + title + "</h3>" +
+                        "<img class = 'thumbnail' src = " + imageSource + ">" +
+                        "<p>" + listOf_ingredients + "</p>" +
+                        "<div class='callout'>" +
+                        "<ul class='menu simple'>" +
+                        "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                        "<li></ul>" +
+                        "</div>" +
+                        "</div>");
+                    for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                        $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                        console.log(blog_post)
+                    }
+
+                }
+
+
+            };
+        })
+    });
+    cheap_vegata.on("click", function() {
+
+        $.ajax({
+            url: queryVegataPrice,
+            method: "GET"
+        }).then(function(response) {
+            $("div.medium-8.columns").html("");
+            for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+                let title = response.results[indexOfResults].title.toString();
+                // console.log("* name")
+                // console.log(title)
+                let imageSource = response.results[indexOfResults].image.toString();
+                // console.log("** image source")
+                // console.log(imageSource)
+
+
+                // This is the variable you will need to use to access the list of ingredients
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let listTheI = [];
+
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
+
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -636,12 +752,21 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
 
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
 
             }
 
@@ -653,6 +778,7 @@ $(document).ready(function() {
             url: queryVegataFast,
             method: "GET"
         }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -663,19 +789,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -687,13 +813,21 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
 
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
-
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
             }
 
         });
@@ -704,6 +838,7 @@ $(document).ready(function() {
             url: queryVegataRand,
             method: "GET"
         }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -714,19 +849,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -738,12 +873,20 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
-
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
 
             }
 
@@ -756,6 +899,7 @@ $(document).ready(function() {
             url: queryPaleoPop,
             method: "GET"
         }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -766,19 +910,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -790,12 +934,20 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
-
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
 
             }
 
@@ -807,6 +959,7 @@ $(document).ready(function() {
             url: queryPaleoPrice,
             method: "GET"
         }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -817,19 +970,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -841,12 +994,21 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
 
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
 
             }
 
@@ -858,6 +1020,7 @@ $(document).ready(function() {
             url: queryPaleoFast,
             method: "GET"
         }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -868,19 +1031,19 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
+                    }
+                }
                 // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
                 let listOf_ingredients = listTheI.toString()
                     // console.log("*** final list");
@@ -892,13 +1055,21 @@ $(document).ready(function() {
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
 
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
-
+                var blog_post = $("<div class = 'blog-post'>" +
+                    "<h3>" + title + "</h3>" +
+                    "<img class = 'thumbnail' src = " + imageSource + ">" +
+                    "<p>" + listOf_ingredients + "</p>" +
+                    "<div class='callout'>" +
+                    "<ul class='menu simple'>" +
+                    "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                    "<li></ul>" +
+                    "</div>" +
+                    "</div>");
+                for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                    $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                    console.log(blog_post)
+                }
             }
 
         });
@@ -909,29 +1080,7 @@ $(document).ready(function() {
             url: queryPaleoRand,
             method: "GET"
         }).then(function(response) {
-            console.log(response);
-
-        });
-    });
-    var allIngredients = [];
-
-    $("#add-ingredient").on("click", function() {
-        var userInput = $("#userInput").val();
-        $("#fridge").append("<p>" + userInput + "</p>");
-        allIngredients.push(userInput);
-        console.log(allIngredients);
-        $("#userInput").val("");
-
-    });
-
-    // Find Recipes button will recognize a click, take the allIngredients array and find recipes with those goodies in it.
-    $("#find-recipes").on("click", function() {
-
-        console.log(allIngredients.toString())
-        $.ajax({
-            url: "https://api.spoonacular.com/recipes/complexSearch?query=" + allIngredients.toString() + "&apiKey=1217e1705a7c427998470eed6fbfe388",
-            method: "GET"
-        }).then(function(response) {
+            $("div.medium-8.columns").html("");
             for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
                 let title = response.results[indexOfResults].title.toString();
                 // console.log("* name")
@@ -942,43 +1091,126 @@ $(document).ready(function() {
 
 
                 // This is the variable you will need to use to access the list of ingredients
-                // let steps = response.results[indexOfResults].analyzedInstructions[0].steps;
+                let step = response.results[indexOfResults].analyzedInstructions[0].steps;
                 let listTheI = [];
 
-                // for (var indexOfSteps = 0; indexOfSteps < steps.length; indexOfSteps++) {
-                //     // console.log(steps[ii]);
-                //     for (var indexOfIngredients = 0; indexOfIngredients < steps[indexOfSteps].ingredients.length; indexOfIngredients++) {
-                //         // console.log(steps[ii].ingredients[iii].name);
-                //         if (listTheI.indexOf(steps[indexOfSteps].ingredients[indexOfIngredients].name) === -1) {
-                //             listTheI.push(steps[indexOfSteps].ingredients[indexOfIngredients].name)
-                //         }
+                for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                    // console.log(step[ii]);
+                    for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                        // console.log(step[ii].ingredients[iii].name);
+                        if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                            listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                        }
 
-                //     }
-                // }
-                // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
-                let listOf_ingredients = listTheI.toString()
-                    // console.log("*** final list");
-                    // console.log(listOf_ingredients);
-                let srcUrl = response.results[indexOfResults].sourceUrl.toString();
-                // console.log("**** url's");
-                // console.log(srcUrl);
-                // console.log("  ")
+                        //     }
+                        // }
+                        // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+                        let listOf_ingredients = listTheI.toString()
+                            // console.log("*** final list");
+                            // console.log(listOf_ingredients);
+                        let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+                        // console.log("**** url's");
+                        // console.log(srcUrl);
+                        // console.log("  ")
 
 
 
-                // This is code for appending that I had tried
-                // for (var ii = 0; ii < listTheI.length; ii++){}
-                // var dish_title = $("h3").text(allPop_dish);
-                // var dish_image = $("img").attr("src", allPop_image);
 
-                // $(".medium-8 columns").append($("div.blog-post").text(dish_title, dish_image))
+                        var blog_post = $("<div class = 'blog-post'>" +
+                            "<h3>" + title + "</h3>" +
+                            "<img class = 'thumbnail' src = " + imageSource + ">" +
+                            "<p>" + listOf_ingredients + "</p>" +
+                            "<div class='callout'>" +
+                            "<ul class='menu simple'>" +
+                            "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                            "<li></ul>" +
+                            "</div>" +
+                            "</div>");
+                        for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                            $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                            console.log(blog_post)
+                        };
 
-            }
+                    };
+                }
+            };
+        });
+        var allIngredients = [];
+
+        $("#add-ingredient").on("click", function() {
+            var userInput = $("#userInput").val();
+            $("#fridge").append("<p>" + userInput + "</p>");
+            allIngredients.push(userInput);
+            console.log(allIngredients);
+            $("#userInput").val("");
 
         });
 
+        // Find Recipes button will recognize a click, take the allIngredients array and find recipes with those goodies in it.
+        $("#find-recipes").on("click", function() {
 
+            console.log(allIngredients.toString())
+            $.ajax({
+                url: "https://api.spoonacular.com/recipes/complexSearch?query=" + allIngredients.toString() + "&apiKey=1217e1705a7c427998470eed6fbfe388",
+                method: "GET"
+            }).then(function(response) {
+                $("div.medium-8.columns").html("");
+                for (var indexOfResults = 0; indexOfResults < response.results.length; indexOfResults++) {
+                    let title = response.results[indexOfResults].title.toString();
+                    // console.log("* name")
+                    // console.log(title)
+                    let imageSource = response.results[indexOfResults].image.toString();
+                    // console.log("** image source")
+                    // console.log(imageSource)
+
+
+                    // This is the variable you will need to use to access the list of ingredients
+                    let step = response.results[indexOfResults].analyzedInstructions[0].steps;
+                    let listTheI = [];
+
+                    for (var indexOfStep = 0; indexOfStep < step.length; indexOfStep++) {
+                        // console.log(step[ii]);
+                        for (var indexOfIngredients = 0; indexOfIngredients < step[indexOfStep].ingredients.length; indexOfIngredients++) {
+                            // console.log(step[ii].ingredients[iii].name);
+                            if (listTheI.indexOf(step[indexOfStep].ingredients[indexOfIngredients].name) === -1) {
+                                listTheI.push(step[indexOfStep].ingredients[indexOfIngredients].name)
+                            }
+
+                        }
+                    }
+                    // This is the variable you will need to use to access the list of ingredients:listOf_ingredients
+                    let listOf_ingredients = listTheI.toString()
+                        // console.log("*** final list");
+                        // console.log(listOf_ingredients);
+                    let srcUrl = response.results[indexOfResults].sourceUrl.toString();
+                    // console.log("**** url's");
+                    // console.log(srcUrl);
+                    // console.log("  ")
+
+
+
+
+                    var blog_post = $("<div class = 'blog-post'>" +
+                        "<h3>" + title + "</h3>" +
+                        "<img class = 'thumbnail' src = " + imageSource + ">" +
+                        "<p>" + listOf_ingredients + "</p>" +
+                        "<div class='callout'>" +
+                        "<ul class='menu simple'>" +
+                        "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                        "<li></ul>" +
+                        "</div>" +
+                        "</div>");
+                    for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                        $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                        console.log(blog_post)
+                    }
+                }
+
+            });
+
+
+
+        });
 
     });
-
 });

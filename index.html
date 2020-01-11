@@ -58,7 +58,8 @@
 
             <div class="blog-post">
                 <h3>Awesome blog post title <small>3/6/2015</small></h3>
-                <div id="recipePicHere"><a href="#"></a>
+                <div id="recipePicHere">
+                    <a href="#"></a>
                     <p id="recipeTitle"></p id="recipeTitle">
                     <p id="listTheIngr"></p>
                 </div>
@@ -104,58 +105,74 @@
             </div>
 
         </div>
-
-
+        <!-- <div class="row column">
+        <ul class="pagination" role="navigation" aria-label="Pagination">
+            <li class="disabled">Previous</li>
+            <li class="current"><span class="show-for-sr">You're on page</span> 1</li>
+            <li><a href="#" aria-label="Page 2">2</a></li>
+            <li><a href="#" aria-label="Page 3">3</a></li>
+            <li><a href="#" aria-label="Page 4">4</a></li>
+            <li class="ellipsis"></li>
+            <li><a href="#" aria-label="Page 12">12</a></li>
+            <li><a href="#" aria-label="Page 13">13</a></li>
+            <li><a href="#" aria-label="Next page">Next</a></li>
+        </ul>
+    </div> -->
         <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
         <script src="https://dhbhdrzi4tiry.cloudfront.net/cdn/sites/foundation.js"></script>
         <script>
-
             $(document).foundation();
             // This loads the page automatically.
             var edaOmni = "https://api.edamam.com/search?q=chicken&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3"
-            $(document).ready(function () {
+            $(document).ready(function() {
                 $.ajax({
                     url: edaOmni,
                     method: "GET"
-                }).then(function (response) {
-                    console.log(response);
+                }).then(function(response) {
+                    // console.log(response);
                     for (var indexOfHits = 0; indexOfHits < response.hits.length; indexOfHits++) {
-
-                        // Add the recipe title
                         let title = response.hits[indexOfHits].recipe.label;
-                        $("#recipeTitle").html(title);
-
-                        // Add the recipe image (still shows up as objects)
+                        // console.log("*Name");
+                        // console.log(title);
                         let image = response.hits[indexOfHits].recipe.image;
-                        var recipePic = image.toString();
-                        // Adding CSS to the image variable above
-                        var recipeImg = $("<img>");
-                        recipeImg.attr("src", recipePic);
-                        recipeImg.css("width", "180px");
-                        recipeImg.css("height", "180px");
-                        // append image to page
-                        recipePicHere.append(recipeImg);
-
-                        // Add recipe url to
-                        let srcUrl = response.hits[indexOfHits].recipe.url
-                        $("#srcUrlSpot").attr("href", srcUrl);
-
-                        // Turn the image into a link for the recipe directions 
-                        var a = $("<a  target='_blank' href=" + srcUrl + "></a>");
-                        console.log(a);
+                        console.log("* image source");
+                        console.log(image);
 
                         let listTheI = response.hits[indexOfHits].recipe.ingredientLines.toString()
-                        // console.log("** List of ingredients")
-                        console.log(listTheI)
-                        $("#listTheIngr").html(listTheI);
+                            // console.log("** List of ingredients")
+                            // console.log(listTheI)
+
+                        let srcUrl = response.hits[indexOfHits].recipe.url
+                            // console.log("*** Url's")
+                            // console.log(srcUrl)
+                        var blog_post = $("<div class = 'blog-post'>" +
+                            "<h3>" + title + "</h3>" +
+                            "<img class = 'thumbnail' src = " + image + ">" +
+                            "<p>" + listTheI + "</p>" +
+                            "<div class='callout'>" +
+                            "<ul class='menu simple'>" +
+                            "<li><a href=" + srcUrl + ">Click here for full recipe</a>" +
+                            "<li></ul>" +
+                            "</div>" +
+                            "</div>");
+                        for (var indexOf_blogPost = 0; indexOf_blogPost < blog_post.length; indexOf_blogPost++) {
+                            $("div.medium-8.columns").append(blog_post[indexOf_blogPost]);
+                            console.log(blog_post)
+                        }
+
 
                     }
+
                 });
             });
         </script>
 
 
+
+
+
         <script src="script.js"></script>
+
 </body>
 
 </html>
