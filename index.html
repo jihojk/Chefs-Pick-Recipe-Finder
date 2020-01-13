@@ -52,15 +52,15 @@
 
     </div>
     <div class="row" id="content">
-        <div class="medium-8 columns">
+        <div class="medium-8 columns" id="empty-container">
 
 
 
-            <div class="blog-post">
+            <!-- <div class="blog-post">
                 
-            </div>
+            </div> -->
         </div>
-        <div class="medium-3 columns" data-sticky-container>
+        <div class="medium-3 columns right-content categories" data-sticky-container>
             <div class="sticky" data-sticky data-anchor="content">
                 <h4>Categories</h4>
                 <ul>
@@ -71,17 +71,15 @@
                 </ul>
 
 
-                <div class="container search-box">
-                    <h4 id="fridge-title"> What's in Your Fridge? </h4>
-                    <div id="fridge"> </div>
-                    <input type="text" placeholder="Your Ingredients List " id="userInput">
-                    <button type="button" class="button success" id="add-ingredient"> Add </button>
-                    <button type="button" class="button warning" id="find-recipes"> Find Recipes </button>
-
-
-                </div>
-                <div class="medium-3 columns" data-sticky-container>
-                    
+            
+                <div class="medium-3 right-content" data-sticky-container>
+                    <div class="columns small-6 large-2 search-box content">
+                        <h4 id="fridge-title"> Ingredients </h4>
+                        <input class="center-block" type="text" placeholder="Enter Ingredients" id="userInput"> 
+                        <button type="button" class="button success" id="add-ingredient"> Add </button>
+                        <button type="button" class="button warning" id="find-recipes"> Find Recipes </button>
+                        <div id="fridge"> </div>
+                    </div>
                 </div>
             </div>
 
@@ -92,7 +90,7 @@
         <script>
             $(document).foundation();
             // This loads the page automatically.
-            var edaOmni = "https://api.edamam.com/search?q=chicken&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3"
+            var edaOmni = "https://api.edamam.com/search?q=random&app_id=00c46abe&app_key=2e68c484c12e4ddcf68cd4c939cef6e0&from=0&to=3"
             $(document).ready(function() {
                 $.ajax({
                     url: edaOmni,
@@ -139,9 +137,8 @@
 
 
 
-
         <script src="script.js"></script>
-
+        <script src="search.js"></script>
 </body>
 
 </html>
