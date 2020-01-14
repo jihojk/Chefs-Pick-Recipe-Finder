@@ -15,6 +15,16 @@ font-family: 'Open Sans', sans-serif;
 font-weight: bolder;
 }
 
+#ingredients{
+    font-family:  'Open Sans', sans-serif;
+    background-color: white;
+    text-align: center ;
+ }
+
+.categories{
+float: right;
+
+}
 
 .search-box {
 width: 350px;
@@ -25,12 +35,18 @@ margin-top: 100px;
 
 #fridge-title{
     text-align: center;
+    font-weight: bold;
+    font-size: 25px;
     margin-top: 30px;
     margin-bottom: 30px;
     font-family: 'Open Sans', sans-serif;
+    
 
+}
 
-
+.right-content{
+margin-left: 50px;
+width: 300px;
 }
 .button {
 width: 120px;
@@ -43,6 +59,16 @@ margin-right: 10px;
 text-align: center;
 }
 
+.button {
+width: 130px;
+margin-left: 10px;
+display: inline-block;
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+ }
+ 
 @media print {
     body {
        content:url(https://previews.123rf.com/images/lanastocker/lanastocker1706/lanastocker170600043/79343824-open-recipe-book-on-white-background-.jpg);
