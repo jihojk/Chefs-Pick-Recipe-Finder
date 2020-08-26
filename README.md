@@ -1,5 +1,3 @@
-# Project 1
-
 ## The Chef's Choice
 
 ## User Story
@@ -15,5 +13,10 @@ The application is designed to find the perfect recipes to match your dietary go
 The application features a search by ingredient feature that will pull up recipes based on the ingredients you have available in your kitchen.
 There are also links available to quickly find the best (popular), the cheapest, the fastest to make, or just random recipes if you are feeling adventurous.
 
+## Deployed Link
+https://dreamy-fermat-570e89.netlify.app/
+
 ## Application UI
 ![Screenshot](assets/images/screenshotapp.png)
+
+
